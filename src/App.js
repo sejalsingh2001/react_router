@@ -4,7 +4,7 @@ import HomeComponent from "./pages/HomeComponent";
 import AccountComponent from "./pages/AccountComponent";
 import CardsComponent from "./pages/CardsComponent";
 import useAuth from "./useAuth";
-import PrivateRoute from "./PrivateRoute";
+import ProtectedRoute from "./ProtectedRoute";
 
 export default function App() {
   const [isAuth, login, logout] = useAuth(false);
@@ -42,7 +42,7 @@ export default function App() {
           <Route path="/" exact element={<HomeComponent />} />
           <Route path="/cards" element={<CardsComponent />} />
           {/* <ProtectedRoute path="/accounts" component={AccountComponent} auth={ isAuth}/> */}
-          <Route element={<PrivateRoute />}>
+          <Route element={<ProtectedRoute />}>
             <Route path="/accounts" element={<AccountComponent />} exact />
           </Route>
         </Routes>
